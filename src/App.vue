@@ -1,5 +1,6 @@
-<script setup lang="ts"></script>
-
+<script setup lang="ts">
+import Home from "./views/Home.vue";
+</script>
 <template>
-  <h1>vite_vue3_template</h1>
+  <Home />
 </template>
