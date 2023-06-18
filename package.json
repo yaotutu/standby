@@ -11,6 +11,8 @@
     "fix": "eslint src --fix"
   },
   "dependencies": {
+    "@types/axios": "^0.14.0",
+    "axios": "^1.4.0",
     "vue": "^3.2.47"
   },
   "devDependencies": {
