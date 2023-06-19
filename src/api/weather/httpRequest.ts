@@ -1,16 +1,16 @@
-import axios, { AxiosResponse } from "axios";
+import axios, { AxiosRequestConfig, AxiosResponse, Method } from "axios";
 // 和风天气的接口地址
 const URL = import.meta.env.VITE_WEATHER_API;
 // 和风天气的key
 const KEY = import.meta.env.VITE_WEATHER_KEY;
 
 // 创建 axios 实例
-let request = axios.create({
+let service = axios.create({
   baseURL: URL as string,
   timeout: 5000,
 });
 // 添加请求拦截器
-request.interceptors.request.use((config) => {
+service.interceptors.request.use((config) => {
   // 在发送请求之前做些什么
   // 在这里配置请求头
   if (config.method === "get") {
@@ -29,7 +29,7 @@ request.interceptors.request.use((config) => {
   return config;
 });
 // 响应拦截器
-request.interceptors.response.use(
+service.interceptors.response.use(
   (response: AxiosResponse) => {
     // 对响应数据做点什么
     return response.data;
@@ -62,5 +62,18 @@ request.interceptors.response.use(
     return Promise.reject(error);
   }
 );
+const request = <T>(
+  url: string,
+  method: Method,
+  submitData: object,
+  config?: AxiosRequestConfig
+) => {
+  return service.request<any, T>({
+    url,
+    method,
+    [method.toLocaleLowerCase() === "get" ? "params" : "data"]: submitData,
+    ...config,
+  });
+};
 
 export default request;
