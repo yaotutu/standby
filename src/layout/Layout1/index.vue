@@ -5,12 +5,10 @@
   </div>
 </template>
 <script setup lang="ts">
-import { getWeather } from "@/api/weather";
+import { getWeather } from "@/api/weather/api";
 import { onMounted } from "vue";
 
 onMounted(() => {
-  getWeather().then((res) => {
-    console.log(res);
-  });
+  getWeather();
 });
 </script>
