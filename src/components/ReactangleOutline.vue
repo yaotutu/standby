@@ -19,8 +19,8 @@ console.log(props);
 
 <style lang="css" scoped>
 .Reactangle-outline-wrap {
-  width: 80vh;
-  height: 45vh;
+  width: 90vh;
+  height: 40vh;
   border-radius: 10vh;
   padding: 4vh;
 }

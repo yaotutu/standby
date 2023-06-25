@@ -26,10 +26,10 @@ import Rss from "@/components/rss/Rss.vue";
   background-size: cover;
 }
 .wrap .left {
-  width: 50vw;
+  width: 100vh;
 }
 .wrap .right {
-  width: 50vw;
+  width: auto;
 }
 .wrap .row {
   display: flex;
