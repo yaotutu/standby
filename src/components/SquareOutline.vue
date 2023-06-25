@@ -21,7 +21,7 @@ console.log(props);
 .Square-outline-wrap {
   width: 40vh;
   height: 40vh;
-  border-radius: 50px;
-  padding: 30px;
+  border-radius: 10vh;
+  padding: 4vh;
 }
 </style>
