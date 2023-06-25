@@ -1,9 +1,9 @@
-import axios from "axios";
+import request from "./httpRequest";
 
-const rss2json = () => {
-  axios.get("https://www.zhihu.com/rss").then((res) => {
-    console.log(res);
+const getRssData = () => {
+  return request("get", {
+    rss_url: "https://rsshub.app/weibo/search/hot",
   });
 };
 
-export { rss2json };
+export { getRssData };
