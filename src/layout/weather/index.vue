@@ -1,7 +1,15 @@
 <template>
   <div>
     <h1>实时天气</h1>
-    It's raining <i class="qi-307"></i> and cold <i class="qi-cold"></i>
+    It's raining
+    <i
+      :class="`qi-${weatherCode}`"
+      style="
+         {
+          font-size: 100px;
+        }
+      "
+    ></i>
 
     <ul>
       <li>温度</li>
@@ -11,11 +19,14 @@
 </template>
 <script setup lang="ts">
 import { getWeatherNow } from "@/api/weather";
-import { onMounted } from "vue";
+import { onMounted, ref } from "vue";
+
+const weatherCode = ref<string>("");
 
 onMounted(() => {
   getWeatherNow().then((res) => {
     console.log(res);
+    weatherCode.value = res.now.icon;
   });
 });
 </script>
