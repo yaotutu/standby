@@ -7,6 +7,12 @@
 <script setup lang="ts">
 import { ref, onMounted } from "vue";
 const currentTime = ref("");
+defineProps({
+  timeFormat: {
+    type: String,
+    default: "HH:mm:ss",
+  },
+});
 
 // 在组件挂载时开始更新时间
 onMounted(() => {
@@ -27,7 +33,6 @@ onMounted(() => {
 </script>
 
 <style lang="css" scoped>
-
 .text {
   font-size: 10rem;
 }
