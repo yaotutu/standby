@@ -8,8 +8,13 @@ export {}
 declare module 'vue' {
   export interface GlobalComponents {
     Clock: typeof import('./src/components/FullScreen/Clock.vue')['default']
+    copy: typeof import('./src/components/FullScreen/DigitalClock copy.vue')['default']
     DigitalClock: typeof import('./src/components/FullScreen/DigitalClock.vue')['default']
+    DigitalClockWeather: typeof import('./src/components/FullScreen/DigitalClockWeather.vue')['default']
     ElButton: typeof import('element-plus/es')['ElButton']
+    ElColorPicker: typeof import('element-plus/es')['ElColorPicker']
+    ElDialog: typeof import('element-plus/es')['ElDialog']
+    ElIcon: typeof import('element-plus/es')['ElIcon']
     ReactangleOutline: typeof import('./src/components/ReactangleOutline.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
