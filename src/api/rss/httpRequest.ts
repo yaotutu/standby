@@ -1,4 +1,4 @@
-import axios, { AxiosRequestConfig, AxiosResponse, Method } from "axios";
+import axios, { AxiosRequestConfig, Method } from "axios";
 
 const baseURL = "https://api.rss2json.com/v1/api.json";
 
