@@ -1,11 +1,11 @@
 import { createRouter, createWebHashHistory } from "vue-router";
-import Weather from "@/layout/weather/index.vue";
 import Square from "@/layout/square/index.vue";
+import Standby from "@/layout/standby/index.vue";
 
 const router = createRouter({
   history: createWebHashHistory(),
   routes: [
-    { path: "/", component: Weather },
+    { path: "/", component: Standby },
     { path: "/square", component: Square },
   ],
 });
