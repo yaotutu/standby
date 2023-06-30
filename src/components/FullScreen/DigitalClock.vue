@@ -1,8 +1,6 @@
 <template>
-  <div class="box">
-    <div class="text">
-      {{ currentTime }}
-    </div>
+  <div class="text">
+    {{ currentTime }}
   </div>
 </template>
 
@@ -29,22 +27,7 @@ onMounted(() => {
 </script>
 
 <style lang="css" scoped>
-@font-face {
-  font-family: "Lobster-Regular";
-  src: url("@/assets/fonts/Lobster-Regular.ttf") format("truetype");
-}
-.box {
-  width: 100%;
-  height: 100%;
-  background: #000;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: "Lobster-Regular";
-  color: #8cac7c;
-  text-shadow: 0 0 10px #000;
-  border-radius: 10px;
-}
+
 .text {
   font-size: 10rem;
 }
