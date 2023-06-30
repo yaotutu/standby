@@ -1,28 +1,23 @@
 <template>
-  <div class="box" @mousedown="startPress" @mouseup="endPress">
+  <div class="box">
     <DigitalClock />
   </div>
 </template>
 
 <script setup lang="ts">
 import DigitalClock from "@/components/FullScreen/DigitalClock.vue";
-import { ref } from "vue";
+import { ElMessage } from "element-plus";
+import "element-plus/theme-chalk/el-message.css";
+import "element-plus/theme-chalk/el-message-box.css";
+
+import { onMounted, ref } from "vue";
 // 存储字体颜色
 const fontColor = ref("#8cac7c");
 // 当用户常按十秒后进入设置页面
-let pressTimer: number | null | NodeJS.Timeout = null;
-const startPress = (): void => {
-  pressTimer = setTimeout(() => {
-    // 执行操作
-    console.log("长按10秒后执行操作");
-  }, 10000);
-};
-const endPress = (): void => {
-  if (pressTimer) {
-    clearTimeout(pressTimer);
-    pressTimer = null;
-  }
-};
+onMounted(() => {
+  ElMessage("this is a message.!!!~~~~~~~~~~");
+  console.log("runnnn");
+});
 </script>
 
 <style lang="css">
@@ -33,7 +28,7 @@ const endPress = (): void => {
 .box {
   width: 100%;
   height: 100%;
-  background: #000;
+  /* background: #000; */
   display: flex;
   justify-content: center;
   align-items: center;
