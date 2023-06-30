@@ -1,6 +1,6 @@
 <template>
   <div class="box" @dblclick="handleDoubleClick">
-    <DigitalClock />
+    <DigitalClock :timeFormat="TimeFormats.HourMinute" />
   </div>
   <el-dialog
     v-model="isDoubleClick"
@@ -27,6 +27,7 @@
 import DigitalClock from "@/components/FullScreen/DigitalClock.vue";
 import { ElMessage } from "element-plus";
 import { ref } from "vue";
+import { TimeFormats } from "@/enums";
 
 // 存储字体颜色
 const fontColor = ref("#8cac7c");
