@@ -1,6 +1,6 @@
 <template>
   <div class="box" @dblclick="handleDoubleClick">
-    <DigitalClock :timeFormat="TimeFormats.HourMinute" />
+    <DigitalClock :timeFormat="TimeFormats.HourMinuteSecond" />
   </div>
   <el-dialog
     v-model="isDoubleClick"
