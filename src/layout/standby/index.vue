@@ -2,30 +2,13 @@
   <div class="box" @dblclick="handleDoubleClick">
     <DigitalClock :timeFormat="TimeFormats.HourMinuteSecond" />
   </div>
-  <el-dialog
-    v-model="isDoubleClick"
-    title=""
-    width="60%"
-    :show-close="false"
-    :before-close="handleClose"
-    class="configPage"
-  >
-    <ul class="settingBox">
-      <li>
-        <span>字体颜色：</span>
-        <el-color-picker v-model="fontColor" size="large" />
-      </li>
-      <li>
-        <span>背景颜色：</span>
-        <el-color-picker v-model="backgroundColor" size="large" />
-      </li>
-    </ul>
-  </el-dialog>
+  <van-dialog v-model:show="isDoubleClick" title="标题" show-cancel-button>
+    <img src="https://fastly.jsdelivr.net/npm/@vant/assets/apple-3.jpeg" />
+  </van-dialog>
 </template>
 
 <script setup lang="ts">
 import DigitalClock from "@/components/FullScreen/DigitalClock.vue";
-import { ElMessage } from "element-plus";
 import { ref } from "vue";
 import { TimeFormats } from "@/enums";
 
@@ -38,14 +21,10 @@ const handleDoubleClick = () => {
   isDoubleClick.value = true;
   // 执行你的操作
   console.log("Double click detected!");
-  ElMessage({
-    message: "Congrats, this is a success message.",
-    type: "success",
-  });
 };
-const handleClose = () => {
-  isDoubleClick.value = false;
-};
+// const handleClose = () => {
+//   isDoubleClick.value = false;
+// };
 </script>
 
 <style lang="css">
