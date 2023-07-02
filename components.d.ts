@@ -7,6 +7,8 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
+    ColorPicker: typeof import('./src/components/ColorPicker.vue')['default']
+    CustomColorPicker: typeof import('./src/components/CustomColorPicker.vue')['default']
     DigitalClock: typeof import('./src/components/FullScreen/DigitalClock.vue')['default']
     ElColorPicker: typeof import('element-plus/es')['ElColorPicker']
     ElDialog: typeof import('element-plus/es')['ElDialog']
