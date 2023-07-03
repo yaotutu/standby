@@ -14,6 +14,10 @@
     :style="{ width: '30%', height: '100%' }"
     @click-overlay="onClickOverlay"
   >
+    <div>
+      选择字体颜色
+      <van-button @click="store.backgroundColor = 'red'">白色</van-button>
+    </div>
   </van-popup>
 </template>
 
@@ -21,10 +25,10 @@
 import DigitalClock from "@/components/FullScreen/DigitalClock.vue";
 import { ref } from "vue";
 import { TimeFormats } from "@/enums";
-
-// 存储字体颜色
-const fontColor = ref("#8cac7c");
-const backgroundColor = ref("#000");
+import { useDigitalClockStore } from "@/stores/index";
+import { storeToRefs } from "pinia";
+const store = useDigitalClockStore();
+const { backgroundColor, fontColor } = storeToRefs(store);
 const showSetting = ref(true);
 const handleDoubleClick = () => {
   // 打开设置页面
