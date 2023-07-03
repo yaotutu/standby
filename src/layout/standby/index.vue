@@ -11,12 +11,25 @@
   <van-popup
     v-model:show="showSetting"
     position="right"
-    :style="{ width: '30%', height: '100%' }"
+    :style="{ width: '40%', height: '100%' }"
     @click-overlay="onClickOverlay"
   >
-    <div>
-      选择字体颜色
-      <van-button @click="store.backgroundColor = 'red'">白色</van-button>
+    <div class="settingBox">
+      <div style="width: 100%; overflow: hidden">
+        <div style="width: 100%; overflow: hidden">字体颜色选择</div>
+        <div style="display: flex; flex-shrink: 0 overflow: scroll;">
+          <div
+            v-for="item in colorList"
+            :style="{
+              backgroundColor: item.value,
+              width: '20px',
+              height: '20px',
+            }"
+          >
+            1
+          </div>
+        </div>
+      </div>
     </div>
   </van-popup>
 </template>
@@ -28,7 +41,7 @@ import { TimeFormats } from "@/enums";
 import { useDigitalClockStore } from "@/stores/index";
 import { storeToRefs } from "pinia";
 const store = useDigitalClockStore();
-const { backgroundColor, fontColor } = storeToRefs(store);
+const { backgroundColor, fontColor, colorList } = storeToRefs(store);
 const showSetting = ref(true);
 const handleDoubleClick = () => {
   // 打开设置页面
