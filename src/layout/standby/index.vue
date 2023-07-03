@@ -8,37 +8,35 @@
   >
     <DigitalClock :timeFormat="TimeFormats.HourMinuteSecond" />
   </div>
-  <van-dialog
-    v-model:show="isDoubleClick"
-    title=""
-    :show-cancel-button="false"
-    :showConfirmButton="false"
+  <van-popup
+    v-model:show="showSetting"
+    position="right"
+    :style="{ width: '30%', height: '100%' }"
+    @click-overlay="onClickOverlay"
   >
-    <ul>
-      <li>字体颜色</li>
-      <li>背景颜色</li>
-      <li>字体大小</li>
-    </ul>
-  </van-dialog>
+  </van-popup>
 </template>
 
 <script setup lang="ts">
 import DigitalClock from "@/components/FullScreen/DigitalClock.vue";
-
-import { ref, watchEffect, watch } from "vue";
+import { ref } from "vue";
 import { TimeFormats } from "@/enums";
 
 // 存储字体颜色
 const fontColor = ref("#8cac7c");
 const backgroundColor = ref("#000");
-const isDoubleClick = ref(true);
+const showSetting = ref(true);
 const handleDoubleClick = () => {
-  isDoubleClick.value = true;
+  // 打开设置页面
+  showSetting.value = true;
+};
+const onClickOverlay = () => {
+  // 关闭设置页面
+  showSetting.value = false;
 };
 </script>
 
 <style lang="css">
-@import "@radial-color-picker/vue-color-picker/dist/vue-color-picker.min.css";
 @font-face {
   font-family: "Lobster-Regular";
   src: url("@/assets/fonts/Lobster-Regular.ttf") format("truetype");
