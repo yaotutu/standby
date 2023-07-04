@@ -17,6 +17,7 @@
     <div class="settingBox">
       <div class="item">
         <div class="title">字体颜色选择</div>
+        <h1 class="text-3xl font-bold underline">Hello world!</h1>
         <div class="content">
           <div
             v-for="item in colorList"
