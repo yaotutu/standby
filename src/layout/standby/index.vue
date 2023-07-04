@@ -15,18 +15,20 @@
     @click-overlay="onClickOverlay"
   >
     <div class="settingBox">
-      <div style="width: 100%; overflow: hidden">
-        <div style="width: 100%; overflow: hidden">字体颜色选择</div>
-        <div style="display: flex; flex-shrink: 0 overflow: scroll;">
+      <div class="item">
+        <div class="title">字体颜色选择</div>
+        <div class="content">
           <div
             v-for="item in colorList"
             :style="{
               backgroundColor: item.value,
-              width: '20px',
-              height: '20px',
+              width: '50px',
+              height: '50px',
+              flexShrink: 0,
+              borderRadius: '50%',
             }"
           >
-            1
+            12222
           </div>
         </div>
       </div>
@@ -74,5 +76,24 @@ const onClickOverlay = () => {
   display: none;
 }
 .settingBox {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  overflow: hidden;
+}
+.item {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.title {
+  width: 100%;
+  text-align: center;
+}
+.content {
+  display: flex;
+  flex-basis: 0;
+  flex-shrink: 0;
+  flex-direction: row;
 }
 </style>
