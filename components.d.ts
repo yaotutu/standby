@@ -10,6 +10,7 @@ declare module 'vue' {
     ColorPicker: typeof import('./src/components/ColorPicker.vue')['default']
     CustomColorPicker: typeof import('./src/components/CustomColorPicker.vue')['default']
     DigitalClock: typeof import('./src/components/FullScreen/DigitalClock.vue')['default']
+    DigitalClockWeather: typeof import('./src/components/FullScreen/DigitalClockWeather.vue')['default']
     ElColorPicker: typeof import('element-plus/es')['ElColorPicker']
     ElDialog: typeof import('element-plus/es')['ElDialog']
     RouterLink: typeof import('vue-router')['RouterLink']
@@ -19,6 +20,8 @@ declare module 'vue' {
     VanCellGroup: typeof import('vant/es')['CellGroup']
     VanDialog: typeof import('vant/es')['Dialog']
     VanPopup: typeof import('vant/es')['Popup']
+    VanSwipe: typeof import('vant/es')['Swipe']
+    VanSwipeItem: typeof import('vant/es')['SwipeItem']
     VanTab: typeof import('vant/es')['Tab']
     VanTabs: typeof import('vant/es')['Tabs']
   }

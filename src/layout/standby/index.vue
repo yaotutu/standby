@@ -1,28 +1,39 @@
 <template>
-  <div
-    class="box"
-    @dblclick="handleDoubleClick"
-    :style="{
-      backgroundColor: backgroundColor,
-    }"
-  >
-    <DigitalClock :timeFormat="TimeFormats.HourMinuteSecond" />
-  </div>
+  <van-swipe class="h-screen" indicator-color="white">
+    <van-swipe-item>
+      <div
+        class="box"
+        :style="{
+          backgroundColor: backgroundColor,
+        }"
+      >
+        <DigitalClock :timeFormat="TimeFormats.HourMinuteSecond" />
+      </div>
+    </van-swipe-item>
+    <van-swipe-item>
+      <div
+        class="box"
+        :style="{
+          backgroundColor: backgroundColor,
+        }"
+      >
+        <DigitalClockWeather :timeFormat="TimeFormats.HourMinute" />
+      </div>
+    </van-swipe-item>
+    <van-swipe-item>3</van-swipe-item>
+    <van-swipe-item>4</van-swipe-item>
+  </van-swipe>
 </template>
 
 <script setup lang="ts">
 import DigitalClock from "@/components/FullScreen/DigitalClock.vue";
+import DigitalClockWeather from "@/components/FullScreen/DigitalClockWeather.vue";
 import { ref } from "vue";
 import { TimeFormats } from "@/enums";
 import { useDigitalClockStore } from "@/stores/index";
 import { storeToRefs } from "pinia";
 const store = useDigitalClockStore();
 const { backgroundColor, fontColor } = storeToRefs(store);
-const showSetting = ref(true);
-const handleDoubleClick = () => {
-  // 打开设置页面
-  showSetting.value = true;
-};
 </script>
 
 <style lang="css">
