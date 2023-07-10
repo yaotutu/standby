@@ -1,5 +1,10 @@
 <template>
-  <van-swipe class="h-screen" indicator-color="white">
+  <van-swipe
+    class="h-screen"
+    indicator-color="white"
+    ref="swipeRef"
+    :initial-swipe="1"
+  >
     <van-swipe-item>
       <div
         class="box"
@@ -28,7 +33,6 @@
 <script setup lang="ts">
 import DigitalClock from "@/components/FullScreen/DigitalClock.vue";
 import DigitalClockWeather from "@/components/FullScreen/DigitalClockWeather.vue";
-import { ref } from "vue";
 import { TimeFormats } from "@/enums";
 import { useDigitalClockStore } from "@/stores/index";
 import { storeToRefs } from "pinia";

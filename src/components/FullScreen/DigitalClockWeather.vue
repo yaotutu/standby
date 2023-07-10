@@ -1,12 +1,16 @@
 <template>
-  <div class="text">
-    {{ currentTime }}
-  </div>
-  <div> 
-    <ul>
-      <li>26摄氏度</li>
-      <li>晴天</li>
-    </ul>
+  <div
+    class="flex flex-none justify-center items-center flex-row w-screen h-screen"
+  >
+    <div class="text w-3/5 flex justify-center items-center h-screen">
+      {{ currentTime }}
+    </div>
+    <div class="w-1/5 h-screen ">
+      <ul class="h-screen justify-evenly items-center flex flex-col">
+        <li class="text-4xl">26摄氏度</li>
+        <li class="text-4xl">晴天</li>
+      </ul>
+    </div>
   </div>
 </template>
 
@@ -21,6 +25,7 @@ const props = defineProps({
     default: "HH:mm:ss",
   },
 });
+
 
 // 在组件挂载时开始更新时间
 onMounted(() => {
