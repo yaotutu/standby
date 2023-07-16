@@ -4,11 +4,13 @@
   >
     <div class="text w-3/5 flex justify-center items-center h-screen">
       {{ currentTime }}
+      {{ 123 }}
     </div>
-    <div class="w-1/5 h-screen ">
+    <div class="w-1/5 h-screen">
       <ul class="h-screen justify-evenly items-center flex flex-col">
-        <li class="text-4xl">26摄氏度</li>
-        <li class="text-4xl">晴天</li>
+        <li class="text-4xl">{{ weatherState.temperature }}</li>
+        <li class="text-4xl">{{ weatherState.weatherText }}</li>
+        <!-- <li class="text-4xl">{{ weatherState.lastUpdate }}</li> -->
       </ul>
     </div>
   </div>
@@ -16,9 +18,25 @@
 
 <script setup lang="ts">
 import { TimeFormats } from "@/enums";
-import { ref, onMounted } from "vue";
-
-const currentTime = ref("");
+import { useTimeStore } from "@/stores/timeStore";
+import { useWeatherStore } from "@/stores/weatherStore";
+import { storeToRefs } from "pinia";
+import { onMounted, computed } from "vue";
+const weatherStore = useWeatherStore();
+const { weatherState } = storeToRefs(weatherStore);
+const { updateWeather } = weatherStore;
+const timeStore = useTimeStore();
+const { hhmm, hhmmss } = storeToRefs(timeStore);
+const { updateTime } = timeStore;
+const currentTime = computed(() => {
+  if (props.timeFormat === TimeFormats.HourMinuteSecond) {
+    return hhmmss.value;
+  } else {
+    console.log("hhmm:", hhmm.value);
+    console.log("typeOf:", typeof hhmm);
+    return hhmm.value;
+  }
+});
 const props = defineProps({
   timeFormat: {
     type: String as () => TimeFormats,
@@ -26,25 +44,12 @@ const props = defineProps({
   },
 });
 
-
 // 在组件挂载时开始更新时间
 onMounted(() => {
-  // 更新时间函数
-  const updateTime = () => {
-    const date = new Date();
-    const hours = String(date.getHours()).padStart(2, "0");
-    const minutes = String(date.getMinutes()).padStart(2, "0");
-    const seconds = String(date.getSeconds()).padStart(2, "0");
-    if (props.timeFormat === TimeFormats.HourMinuteSecond) {
-      currentTime.value = `${hours}:${minutes}:${seconds}`;
-    } else {
-      currentTime.value = `${hours}:${minutes}`;
-    }
-  };
-
   // 每秒更新时间
   updateTime();
   setInterval(updateTime, 1000);
+  setInterval(updateWeather, 300000);
 });
 </script>
 

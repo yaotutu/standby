@@ -29,3 +29,5 @@ export const useDigitalClockStore = defineStore("digitalClock", () => {
 
   return { fontColor, backgroundColor, colorList };
 });
+
+
