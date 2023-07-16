@@ -4,13 +4,11 @@
   >
     <div class="text w-3/5 flex justify-center items-center h-screen">
       {{ currentTime }}
-      {{ 123 }}
     </div>
     <div class="w-1/5 h-screen">
       <ul class="h-screen justify-evenly items-center flex flex-col">
         <li class="text-4xl">{{ weatherState.temperature }}</li>
         <li class="text-4xl">{{ weatherState.weatherText }}</li>
-        <!-- <li class="text-4xl">{{ weatherState.lastUpdate }}</li> -->
       </ul>
     </div>
   </div>
@@ -32,8 +30,6 @@ const currentTime = computed(() => {
   if (props.timeFormat === TimeFormats.HourMinuteSecond) {
     return hhmmss.value;
   } else {
-    console.log("hhmm:", hhmm.value);
-    console.log("typeOf:", typeof hhmm);
     return hhmm.value;
   }
 });
@@ -46,8 +42,8 @@ const props = defineProps({
 
 // 在组件挂载时开始更新时间
 onMounted(() => {
-  // 每秒更新时间
   updateTime();
+  updateWeather();
   setInterval(updateTime, 1000);
   setInterval(updateWeather, 300000);
 });

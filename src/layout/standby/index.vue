@@ -34,10 +34,10 @@
 import DigitalClock from "@/components/FullScreen/DigitalClock.vue";
 import DigitalClockWeather from "@/components/FullScreen/DigitalClockWeather.vue";
 import { TimeFormats } from "@/enums";
-import { useDigitalClockStore } from "@/stores/index";
+import { useStyleStore } from "@/stores/styleStore";
 import { storeToRefs } from "pinia";
-const store = useDigitalClockStore();
-const { backgroundColor, fontColor } = storeToRefs(store);
+const styleStore = useStyleStore()
+const {backgroundColor,fontColor,fontSize,colorList} = storeToRefs(styleStore)
 </script>
 
 <style lang="css">

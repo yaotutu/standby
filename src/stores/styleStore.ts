@@ -1,7 +1,7 @@
 import { defineStore } from "pinia";
 import { reactive, ref } from "vue";
 
-export const useDigitalClockStore = defineStore("digitalClock", () => {
+export const useStyleStore = defineStore("style", () => {
   const colorList = reactive([
     { name: "Black", value: "#000000" },
     { name: "White", value: "#FFFFFF" },
@@ -25,9 +25,7 @@ export const useDigitalClockStore = defineStore("digitalClock", () => {
     { name: "Maroon", value: "#800000" },
   ]);
   const fontColor = ref("#8cac7c");
+  const fontSize = ref("10rem")
   const backgroundColor = ref("#000");
-
-  return { fontColor, backgroundColor, colorList };
-});
-
-
+  return { fontColor, backgroundColor, colorList, fontSize };
+})
